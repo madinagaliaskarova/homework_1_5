@@ -8,12 +8,13 @@ import kg.geektech.homework_1_5.presenter.Presenter
 import kg.geektech.homework_1_5.view.CounterView
 
 class MainActivity : AppCompatActivity(), CounterView {
-    lateinit var binding: ActivityMainBinding
-    lateinit var presenter: Presenter
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var presenter: Presenter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         presenter = Injecter.getPresenter()
         presenter.attachView(this)
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity(), CounterView {
 
     private fun initClicker() {
         with(binding) {
-            buttonPlus.setOnClickListener{
+            buttonPlus.setOnClickListener {
                 presenter.increment()
             }
 

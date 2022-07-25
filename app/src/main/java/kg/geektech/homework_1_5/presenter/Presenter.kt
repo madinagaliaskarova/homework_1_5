@@ -1,12 +1,12 @@
 package kg.geektech.homework_1_5.presenter
 
+import kg.geektech.homework_1_5.Injecter
 import kg.geektech.homework_1_5.model.CounterModel
 import kg.geektech.homework_1_5.view.CounterView
 
 class Presenter {
     lateinit var view: CounterView
-
-    val model = CounterModel()
+    private val model = Injecter.getModel()
 
 
     fun increment() {
